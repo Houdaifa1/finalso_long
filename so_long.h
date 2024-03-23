@@ -6,14 +6,14 @@
 /*   By: hdrahm <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 15:26:26 by hdrahm            #+#    #+#             */
-/*   Updated: 2024/03/21 15:26:30 by hdrahm           ###   ########.fr       */
+/*   Updated: 2024/03/23 20:45:21 by hdrahm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./minilibx-linux/mlx.h"
+# include <mlx.h>
 # include <fcntl.h>
 # include <limits.h>
 # include <stdarg.h>
@@ -50,13 +50,9 @@ typedef struct mlptr
 	char	**map;
 	int		high;
 	int		size;
-	void	*imgmb;
-	void	*imgenb;
+	void	*imgenl;
+	void	*imgenred;
 	void	*imgenr;
-	void	*imgdl;
-	void	*imgdr;
-	void	*imgc2;
-	void	*imgc3;
 	char	*strmoves;
 
 }			t_mlptr;
@@ -157,5 +153,7 @@ void		enemys_s(int j, int i, t_mlptr *mlptr);
 void		enemys_w(int j, int i, t_mlptr *mlptr);
 
 void		enemys_d(int j, int i, t_mlptr *mlptr);
+
+int			ft_close_wind(t_mlptr *mlptr);
 
 #endif

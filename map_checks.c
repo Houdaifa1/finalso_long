@@ -28,7 +28,7 @@ void	check_coins(char **map, t_info *info)
 				info->x = 'C';
 				if (check_path_to_p(map, j, i, info) != 1)
 				{
-					ft_printf("There is no Valid path to the coins");
+					ft_printf("Error\nThere is no Valid path to the coins");
 					ft_free_arr(map);
 					exit(1);
 				}
@@ -57,7 +57,7 @@ void	check_exit(char **map, t_info *info)
 				info->x = 'P';
 				if (check_path_to_p(map, j, i, info) != 1)
 				{
-					ft_printf("There is no valid path to the exit ");
+					ft_printf("Error\nThere is no valid path to the exit ");
 					ft_free_arr(info->map);
 					exit(1);
 				}
@@ -110,7 +110,7 @@ void	verify_elements(char **map, t_info *info)
 			if (map[j][i] != 'P' && map[j][i] != 'C' && map[j][i] != '0'
 				&& map[j][i] != '1' && map[j][i] != 'E' && map[j][i] != 'V')
 			{
-				ft_printf("the map contain an element other than 0,1,P,C,E");
+				ft_printf("Error\nThere is an element other than 0,1,P,C,E,V");
 				ft_free_arr(info->map);
 				exit(1);
 			}
@@ -136,13 +136,13 @@ void	translate_map(char *name)
 	temp = get_the_map_in_oneline(&info);
 	if (temp == NULL)
 	{
-		ft_printf("The file containing the map is wrong");
+		ft_printf("Error\nThe file containing the map is wrong");
 		exit(1);
 	}
 	i = ft_strlen(temp);
 	if (temp[i - 1] == '\n')
 	{
-		ft_printf("There is an empty line in the end of the file ");
+		ft_printf("Error\nThere is an empty line");
 		free(temp);
 		exit(1);
 	}

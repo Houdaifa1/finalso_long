@@ -23,7 +23,7 @@ void	ft_move_enemy_left(int pj, int pi, t_mlptr *mlptr)
 				mlptr->imgs, (pi + 1) * 50, pj * 50);
 			mlptr->map[pj][pi] = 'V';
 			mlx_put_image_to_window(mlptr->mlx_ptr, mlptr->mlx_wind,
-				mlptr->imgenb, pi * 50, pj * 50);
+				mlptr->imgenl, pi * 50, pj * 50);
 		}
 	}
 }
@@ -39,7 +39,7 @@ void	ft_move_enemy_right(int pj, int pi, t_mlptr *mlptr)
 				mlptr->imgs, (pi - 1) * 50, pj * 50);
 			mlptr->map[pj][pi] = 'V';
 			mlx_put_image_to_window(mlptr->mlx_ptr, mlptr->mlx_wind,
-				mlptr->imgenr, pi * 50, pj * 50);
+				mlptr->imgenl, pi * 50, pj * 50);
 		}
 	}
 }
@@ -55,7 +55,7 @@ void	ft_move_enemy_up(int pj, int pi, t_mlptr *mlptr)
 				mlptr->imgs, pi * 50, (pj + 1) * 50);
 			mlptr->map[pj][pi] = 'V';
 			mlx_put_image_to_window(mlptr->mlx_ptr, mlptr->mlx_wind,
-				mlptr->imgenb, pi * 50, pj * 50);
+				mlptr->imgenl, pi * 50, pj * 50);
 		}
 	}
 }
@@ -71,7 +71,7 @@ void	ft_move_enemy_down(int pj, int pi, t_mlptr *mlptr)
 				mlptr->imgs, pi * 50, (pj - 1) * 50);
 			mlptr->map[pj][pi] = 'V';
 			mlx_put_image_to_window(mlptr->mlx_ptr, mlptr->mlx_wind,
-				mlptr->imgenb, pi * 50, pj * 50);
+				mlptr->imgenl, pi * 50, pj * 50);
 		}
 	}
 }

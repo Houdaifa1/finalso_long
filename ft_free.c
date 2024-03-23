@@ -24,6 +24,12 @@ void	ft_free_arr(char **map)
 	free(map);
 }
 
+int	ft_close_wind(t_mlptr *mlptr)
+{
+	ft_free_mlptr(mlptr, 'Y');
+	exit(0);
+}
+
 void	ft_free2(t_mlptr *mlptr)
 {
 	if (mlptr->imgw)
@@ -34,8 +40,10 @@ void	ft_free2(t_mlptr *mlptr)
 		mlx_destroy_image(mlptr->mlx_ptr, mlptr->imge);
 	if (mlptr->imgs)
 		mlx_destroy_image(mlptr->mlx_ptr, mlptr->imgs);
-	if (mlptr->imgenb)
-		mlx_destroy_image(mlptr->mlx_ptr, mlptr->imgenb);
+	if (mlptr->imgenl)
+		mlx_destroy_image(mlptr->mlx_ptr, mlptr->imgenl);
+	if (mlptr->imgenred)
+		mlx_destroy_image(mlptr->mlx_ptr, mlptr->imgenred);
 	if (mlptr->imgenr)
 		mlx_destroy_image(mlptr->mlx_ptr, mlptr->imgenr);
 }

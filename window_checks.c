@@ -25,7 +25,7 @@ int	ft_move_player(int keynum, t_mlptr *mlptr)
 		ft_change_map_imgd(mlptr);
 	if (keynum == 119 || keynum == 65362)
 		ft_change_map_imgw(mlptr);
-	if (keynum == 65307)
+	if (keynum == 65307 || keynum == 1288845088)
 	{
 		ft_free_mlptr(mlptr, 'Y');
 		exit(1);
@@ -44,6 +44,7 @@ void	ft_put_image_in_win(t_info *info, t_mlptr *mlptr, int x, int y)
 
 	j = 0;
 	b = 0;
+	mlptr->moves = 0;
 	while (j < y)
 	{
 		i = 0;
@@ -57,6 +58,7 @@ void	ft_put_image_in_win(t_info *info, t_mlptr *mlptr, int x, int y)
 		j = j + 50;
 		b++;
 	}
+	ft_get_player_pos(info, mlptr, 0, 0);
 }
 
 void	put_enemy_animation(t_mlptr *mlptr, void *imgc)
@@ -83,13 +85,13 @@ int	ft_test(t_mlptr *mlptr)
 {
 	static int	i;
 
-	if (i < 10)
+	if (i < 300)
+		put_enemy_animation(mlptr, mlptr->imgenred);
+	else if (i < 4000)
 		put_enemy_animation(mlptr, mlptr->imgenr);
-	if (i < 40)
-		put_enemy_animation(mlptr, mlptr->imgenb);
-	if (i < 60)
-		put_enemy_animation(mlptr, mlptr->imgenb);
-	if (i > 60)
+	else if (i < 6000)
+		put_enemy_animation(mlptr, mlptr->imgenl);
+	else if (i >= 6000)
 		i = 0;
 	i++;
 	return (0);
@@ -109,7 +111,8 @@ void	put_images(t_info *info)
 		|| mlptr.imgpmr == NULL || mlptr.imgpml == NULL || mlptr.imgc == NULL
 		|| mlptr.imgs == NULL || mlptr.imge == NULL || mlptr.imger == NULL
 		|| mlptr.imgel == NULL || mlptr.imgeu == NULL || mlptr.imged == NULL
-		|| mlptr.imgenb == NULL || mlptr.imgenr == NULL)
+		|| mlptr.imgenl == NULL || mlptr.imgenred == NULL
+		|| mlptr.imgenr == NULL)
 	{
 		ft_free_mlptr(&mlptr, 'N');
 		ft_free_arr(info->map);
@@ -117,9 +120,8 @@ void	put_images(t_info *info)
 	}
 	mlptr.mlx_wind = mlx_new_window(mlptr.mlx_ptr, x, y, "./so_long");
 	ft_put_image_in_win(info, &mlptr, x, y);
-	ft_get_player_pos(info, &mlptr, 0, 0);
-	mlptr.moves = 0;
 	mlx_hook(mlptr.mlx_wind, 02, 1L << 0, &ft_move_player, &mlptr);
 	mlx_loop_hook(mlptr.mlx_ptr, ft_test, &mlptr);
+	mlx_hook(mlptr.mlx_wind, 17, 0L, &ft_close_wind, &mlptr);
 	mlx_loop(mlptr.mlx_ptr);
 }

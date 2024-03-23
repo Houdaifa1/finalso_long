@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrahm <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 00:27:06 by hdrahm            #+#    #+#             */
-/*   Updated: 2024/03/21 00:27:08 by hdrahm           ###   ########.fr       */
+/*   Created: 2023/12/20 22:28:23 by hdrahm            #+#    #+#             */
+/*   Updated: 2023/12/20 22:51:01 by hdrahm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	ft_putstr(char *str)
+int	ft_putchar(char c)
 {
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	if (!str)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	while (str[i])
-	{
-		count += write(1, &str[i++], 1);
-	}
-	return (count);
+	write(1, &c, 1);
+	return (1);
 }

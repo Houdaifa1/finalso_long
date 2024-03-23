@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdrahm <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 00:25:32 by hdrahm            #+#    #+#             */
-/*   Updated: 2024/03/21 00:25:50 by hdrahm           ###   ########.fr       */
+/*   Created: 2023/12/20 22:34:18 by hdrahm            #+#    #+#             */
+/*   Updated: 2023/12/20 22:50:21 by hdrahm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(int arc, char **arv)
-{
-	int		i;
-	int		j;
-	char	*name;
+# include <stdio.h>
+# include <unistd.h>
+# include <stdarg.h>
 
-	i = 0;
-	j = 3;
-	name = ".ber";
-	if (arc == 2)
-	{
-		i = ft_strlen(arv[1]) - 1;
-		while (j >= 0)
-		{
-			if (arv[1][i] != name[j])
-			{
-				ft_printf("Error\nThe extention is wrong");
-				exit(1);
-			}
-			j--;
-			i--;
-		}
-		translate_map(arv[1]);
-	}
-	else
-		ft_printf("Error\nNumber of arguments not correct");
-	return (0);
-}
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+int	ft_printf(const char *format, ...);
+
+#endif

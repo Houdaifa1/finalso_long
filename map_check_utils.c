@@ -24,7 +24,7 @@ void	check_angle(char **map, t_info *info)
 		i = ft_strlen(map[j]);
 		if (i != info->size)
 		{
-			ft_printf("the map is not rectangular");
+			ft_printf("Error\nThe map is not rectangular");
 			ft_free_arr(info->map);
 			exit(1);
 		}
@@ -43,7 +43,7 @@ void	check_borders(char **map, t_info *info)
 	{
 		if (map[j][i] != '1' || map[info->high - 1][i] != '1')
 		{
-			ft_printf("please correct borders of the game");
+			ft_printf("Error\nThe borders contain an element other than 1");
 			ft_free_arr(info->map);
 			exit(1);
 		}
@@ -53,7 +53,7 @@ void	check_borders(char **map, t_info *info)
 	{
 		if (map[j][0] != '1' || map[j][info->size - 1] != '1')
 		{
-			ft_printf("please correct borders of the game");
+			ft_printf("Error\nThe borders contain an element other than 1");
 			ft_free_arr(info->map);
 			exit(1);
 		}

@@ -25,6 +25,8 @@ void	ft_get_images2(t_mlptr *mlptr)
 			&img_width, &img_height);
 	mlptr->imge = mlx_xpm_file_to_image(mlptr->mlx_ptr, "./textures/door.xpm",
 			&img_width, &img_height);
+	mlptr->imgenr = mlx_xpm_file_to_image(mlptr->mlx_ptr,
+			"./textures/enemyright.xpm", &img_width, &img_height);
 }
 
 void	ft_get_images(t_mlptr *mlptr)
@@ -45,13 +47,13 @@ void	ft_get_images(t_mlptr *mlptr)
 			"./textures/eatright.xpm", &img_width, &img_height);
 	mlptr->imgel = mlx_xpm_file_to_image(mlptr->mlx_ptr,
 			"./textures/eatleft.xpm", &img_width, &img_height);
-	mlptr->imgeu = mlx_xpm_file_to_image(mlptr->mlx_ptr, "./textures/eatup.xpm",
-			&img_width, &img_height);
+	mlptr->imgeu = mlx_xpm_file_to_image(mlptr->mlx_ptr,
+			"./textures/eatup.xpm", &img_width, &img_height);
 	mlptr->imged = mlx_xpm_file_to_image(mlptr->mlx_ptr,
 			"./textures/eatdown.xpm", &img_width, &img_height);
-	mlptr->imgenb = mlx_xpm_file_to_image(mlptr->mlx_ptr,
+	mlptr->imgenl = mlx_xpm_file_to_image(mlptr->mlx_ptr,
 			"./textures/enemyleft.xpm", &img_width, &img_height);
-	mlptr->imgenr = mlx_xpm_file_to_image(mlptr->mlx_ptr,
+	mlptr->imgenred = mlx_xpm_file_to_image(mlptr->mlx_ptr,
 			"./textures/imgenr.xpm", &img_width, &img_height);
 }
 
@@ -87,6 +89,6 @@ void	ft_put_map_images(t_mlptr *mlptr, int i, int j, char c)
 		mlx_put_image_to_window(mlptr->mlx_ptr, mlptr->mlx_wind, mlptr->imge, i,
 			j);
 	else if (c == 'V')
-		mlx_put_image_to_window(mlptr->mlx_ptr, mlptr->mlx_wind, mlptr->imgenb,
+		mlx_put_image_to_window(mlptr->mlx_ptr, mlptr->mlx_wind, mlptr->imgenl,
 			i, j);
 }
